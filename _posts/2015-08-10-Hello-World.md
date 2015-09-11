@@ -4,7 +4,7 @@ title: Hello, World!
 share: true
 categories: blog
 excerpt:
-tags: [R]
+tags: [rstats]
 image:
   feature: 
 ---
