@@ -3,7 +3,7 @@
 title: data science ish
 locale: en_US
 description: Moving from astronomy and physics to data science, one project at a time
-logo: site-logo.png
+logo: blog_logo.png
 search: true
 url: http://juliasilge.com
 
@@ -35,7 +35,7 @@ exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.
 # Site owner
 owner:
   name: Julia Silge
-  avatar: bio-photo.jpg
+  avatar: birthday36square.jpg
   email: julia.silge@gmail.com
   disqus-shortname: datascienceish
   twitter: juliasilge
