@@ -1,19 +1,19 @@
 # Site navigation links
 
-- title: About
-  url: /about/
-
-- title: Articles
-  url: /articles/
-
 - title: Blog
   url: /blog/
 
-- title: Theme Setup
-  url: /theme-setup/
+- title: About
+  url: /about/
 
-- title: Made Mistakes
-  url: http://mademistakes.com
+- title: Resume
+  url: /resume/
+
+- title: Github
+  url: http://github.com/juliasilge
+
+- title: LinkedIn
+  url: http://www.linkedin.com/in/juliasilge
 
 - title: Search
   url: /search/
