@@ -13,6 +13,10 @@ title: Helpful Data Science Resources Elsewhere
 
 [David Robinson](http://varianceexplained.org)
 
+[Erin Shellman](http://www.erinshellman.com)
+
 [Ari Lamstein](http://www.arilamstein.com)
 
 [Hilary Parker](http://hilaryparker.com)
+
+[Trey Causey](http://treycausey.com)
