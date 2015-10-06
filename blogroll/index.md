@@ -7,6 +7,8 @@ title: Helpful Data Science Resources Elsewhere
 
 [No Free Hunch @ Kaggle](http://blog.kaggle.com)
 
+[MultiThreaded @ Stitch Fix](http://multithreaded.stitchfix.com/blog/)
+
 [RStudio Blog](http://blog.rstudio.org)
 
 [David Robinson](http://varianceexplained.org)
