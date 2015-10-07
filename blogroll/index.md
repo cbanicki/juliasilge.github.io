@@ -9,6 +9,8 @@ title: Helpful Data Science Resources Elsewhere
 
 [MultiThreaded @ Stitch Fix](http://multithreaded.stitchfix.com/blog/)
 
+[Fast Forward Labs](http://blog.fastforwardlabs.com/)
+
 [RStudio Blog](http://blog.rstudio.org)
 
 [David Robinson](http://varianceexplained.org)
