@@ -62,5 +62,5 @@ Experienced in using statistical techniques and numerical modeling with real-wor
 ## Education
 
 * University of Texas at Austin - PhD in astronomy, 2005
-* University of Texas at Austin- MA in astronomy, 2002
+* University of Texas at Austin - MA in astronomy, 2002
 * Texas A&M University - BS in physics, 2000 (magna cum laude)
