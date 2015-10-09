@@ -27,30 +27,30 @@ Experienced in using statistical techniques and numerical modeling with real-wor
 ## Experience
 
 #### Content Developer & Support Representative, Sapling Learning
-##### 2012—present
+2012—present
 
 * Created interactive Flash-based online questions, solutions, feedback, and tutorials designed for college-level astronomy courses.
 * Reviewed questions for accuracy and assisted in project management and user acceptance testing projects. 
 * Provided individualized customer support for instructors and developed positive client relationships.
 
 #### Adjunct Professor, Quinnipiac University
-##### 2006—2008
+2006—2008
 
 * Taught physics, chemistry, astronomy, and earth science courses with accompanying lab courses for science and non-science majors, utilizing cooperative instructional strategies and online course management system.
 
 #### Adjunct Professor, University of New Haven
-##### 2006—2008
+2006—2008
 
 * Taught physics for non-science majors with accompanying lab course, utilizing cooperative instructional strategies and online course management system.
 
 #### Postdoctoral Researcher, Yale University
-##### 2005—2006
+2005—2006
 
 * Developed software for data analysis pipeline of Palomar-QUEST Survey
 * Worked with large data sets (survey generated ~70 GB per night) and integrated existing software of collaborators into pipeline.
 
 #### Graduate Instructor/Research Assistant, University of Texas at Austin
-##### 2000—2005
+2000—2005
 
 * Studied internal kinematics of nearby galaxies using infrared radiation to determine effects of dust.
 * Independently observed at McDonald Observatory (over 40 nights). 
