@@ -30,18 +30,23 @@ Experienced in using statistical techniques and numerical modeling with real-wor
 2012—present
 
 * Created interactive Flash-based online questions, solutions, feedback, and tutorials designed for college-level astronomy courses.
-* Reviewed questions for accuracy and assisted in project management and user acceptance testing projects. 
+* Reviewed questions authored by others for accuracy, style, and appropriate level.
+* In total, created or reviewed over 800 detailed, rich questions.
+* Assisted in project management and user acceptance testing projects. 
+* Incorporated questions and other materials into customized, cohesive online course sites for instructors.
 * Provided individualized customer support for instructors and developed positive client relationships.
 
 #### Adjunct Professor, Quinnipiac University
 2006—2008
 
-* Taught physics, chemistry, astronomy, and earth science courses with accompanying lab courses for science and non-science majors, utilizing cooperative instructional strategies and online course management system.
+* Taught physics, chemistry, astronomy, and earth science courses with accompanying lab courses for science and non-science majors, utilizing online course management system and online homework.
+* Increased student engagement and learning by employing cooperative instructional strategies.
 
 #### Adjunct Professor, University of New Haven
 2006—2008
 
-* Taught physics for non-science majors with accompanying lab course, utilizing cooperative instructional strategies and online course management system.
+* Taught physics for non-science majors with accompanying lab course, utilizing online course management system and online homework.
+* Increased student engagement and learning by employing cooperative instructional strategies.
 
 #### Postdoctoral Researcher, Yale University
 2005—2006
