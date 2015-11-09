@@ -2,7 +2,7 @@
 layout: page
 title: About Me
 image:
-  feature: myportraitwide2015.jpg
+  feature: myportraitwideBW.jpg
   credit: Point Four Photography
   creditlink: http://www.pointfourphotography.com
 ---
