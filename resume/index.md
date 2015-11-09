@@ -60,7 +60,7 @@ Experienced in using statistical techniques and numerical modeling with real-wor
 * Studied internal kinematics of nearby galaxies using infrared radiation to determine effects of dust.
 * Independently observed at McDonald Observatory (over 40 nights). 
 * Independently developed data analysis software tailored to research project; used dynamical modeling to interpret and understand data. 
-* Published first-author papers in refereed journals. 
+* Published first-author papers in refereed journals and presented research at national scientific meetings. 
 * Independently coordinated and taught introductory astronomy observing lab for non-science majors, supervising other graduate student instructors and developing curriculum.
 * Received University of Texas Goetting Memorial Endowed Scholarship for excellence in teaching, Texas Space Grant Consortium Graduate Fellowship for excellence in research, and University of Texas Graduate Continuing Fellowship for excellence in research.
 
