@@ -62,6 +62,7 @@ Experienced in using statistical techniques and numerical modeling with real-wor
 * Independently developed data analysis software tailored to research project; used dynamical modeling to interpret and understand data. 
 * Published first-author papers in refereed journals. 
 * Independently coordinated and taught introductory astronomy observing lab for non-science majors, supervising other graduate student instructors and developing curriculum.
+* Received University of Texas Goetting Memorial Endowed Scholarship for excellence in teaching, Texas Space Grant Consortium Graduate Fellowship for excellence in research, and University of Texas Graduate Continuing Fellowship for excellence in research.
 
 
 ## Education
