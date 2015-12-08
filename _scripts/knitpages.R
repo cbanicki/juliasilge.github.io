@@ -1,4 +1,3 @@
-#!/usr/bin/Rscript --vanilla
 
 # compiles all .Rmd files in _R directory into .md files in Pages directory,
 # if the input file is older than the output file.
