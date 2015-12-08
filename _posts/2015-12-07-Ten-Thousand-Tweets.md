@@ -56,7 +56,7 @@ Perhaps we'd like to see how many tweets I've tweeted each year. Use the `year()
 
 {% highlight r %}
 ggplot(data = tweets, aes(x = year(timestamp))) +
-        geom_histogram(breaks = seq(2008, 2015, by =1), aes(fill = ..count..)) +
+        geom_histogram(breaks = seq(2007.5, 2015.5, by =1), aes(fill = ..count..)) +
         theme(legend.position = "none") +
         xlab("Time") + ylab("Number of tweets") + 
         scale_fill_gradient(low = "midnightblue", high = "aquamarine4")
