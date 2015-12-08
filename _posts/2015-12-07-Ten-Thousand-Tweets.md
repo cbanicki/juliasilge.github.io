@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Ten Thousand Tweets"
-date: 2015-12-08 17:00:00 -0700
+date: 2015-12-08 2:00:00 -0500
 output: html_document
 share: true
 categories: blog
