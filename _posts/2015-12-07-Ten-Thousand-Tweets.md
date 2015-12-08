@@ -369,4 +369,4 @@ Amen.
 
 ## The End
 
-So there are some examples of how to make histograms and bar charts using `ggplot2`, and do a bit of related analysis. The R Markdown file used to make this blog post is available [here](https://github.com/juliasilge/juliasilge.github.io). I am happy to hear feedback and suggestions as I am very much still learning about how to use R!
+So there are some examples of how to make histograms and bar charts using `ggplot2`, and do a bit of related analysis. The R Markdown file used to make this blog post is available [here](https://github.com/juliasilge/juliasilge.github.io/blob/master/_R/2015-12-07-Ten-Thousand-Tweets.Rmd). I am happy to hear feedback and suggestions as I am very much still learning about how to use R!
