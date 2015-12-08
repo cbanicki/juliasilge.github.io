@@ -108,7 +108,7 @@ mean(myTable[c(2:5)])/mean(myTable[c(1,6,7)])
 ## [1] 1.283351
 {% endhighlight %}
 
-The values for Monday through Friday are 1.283 higher than the other days, on average, close to 5/4. Let's see if the chi-squared test says that my pattern of tweets is consistent with tweeting 1.25 times as often (5/4) on Monday through Thursday as on Friday through Sunday.
+The values for Monday through Thursday are 1.283 higher than the other days, on average, close to 5/4. Let's see if the chi-squared test says that my pattern of tweets is consistent with tweeting 1.25 times as often (5/4) on Monday through Thursday as on Friday through Sunday.
 
 
 {% highlight r %}
