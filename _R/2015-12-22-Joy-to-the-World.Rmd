@@ -248,5 +248,5 @@ The first thing to notice here is that the variance is much higher for the month
 
 ## The End
 
-The R Markdown file used to make this blog post is available [here](https://github.com/juliasilge/juliasilge.github.io). I am happy to hear feedback and suggestions; these are some very powerful packages I used in this analysis and I know I only scratched the surface of the kind of work that can be done with them.
+The R Markdown file used to make this blog post is available [here](https://github.com/juliasilge/juliasilge.github.io/blob/master/_R/2015-12-22-Joy-to-the-World.Rmd). I am happy to hear feedback and suggestions; these are some very powerful packages I used in this analysis and I know I only scratched the surface of the kind of work that can be done with them.
 
