@@ -15,6 +15,7 @@ library(knitr)
 #library(svglite)
 #knitr::opts_chunk$set(dev = "svglite", fig.ext = ".svg")
 knitr::opts_chunk$set(cache = TRUE, warning = FALSE, message = FALSE)
+options(width=100)
 ```
 
 In my [previous blog post](http://juliasilge.com/blog/Ten-Thousand-Tweets/), I analyzed my Twitter archive and explored some aspects of my tweeting behavior. When do I tweet, how much do retweet people, do I use hashtags? These are examples of one kind of question, but what about the actual verbal content of my tweets, the text itself? What kinds of questions can we ask and answer about the text in some programmatic way? This is what is called natural language processing, and I'll give a first shot at it here. First, let's load some libraries I'll use in this analysis and open up my Twitter archive.
