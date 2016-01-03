@@ -44,7 +44,7 @@ choro$title = "Median Rent in Utah Counties"
 choro$set_num_colors(1)
 choro$ggplot_scale = scale_fill_gradientn(name = "Median Rent ($)", colours = brewer.pal(8, "GnBu"))
 choro$render() + geom_text(data = data.frame(long = -111.88, lat = 40.67, label = "Salt Lake"),
-                           aes(long, lat, label = label, group = NULL), color = "black", size = 2.5)
+                           aes(long, lat, label = label, group = NULL), color = "black", size = 3)
 {% endhighlight %}
 
 ![center](/figs/2016-1-3-This-Is-the-Place/unnamed-chunk-3-1.png) 
@@ -65,7 +65,7 @@ choro$title = "How Much of Utah's Population Is White?"
 choro$set_num_colors(1)
 choro$ggplot_scale = scale_fill_gradientn(name = "Percent", colours = brewer.pal(8, "GnBu"))
 choro$render() + geom_text(data = data.frame(long = -111.88, lat = 40.67, label = "Salt Lake"),
-                           aes(long, lat, label = label, group = NULL), color = "black", size = 2.5)
+                           aes(long, lat, label = label, group = NULL), color = "black", size = 3)
 {% endhighlight %}
 
 ![center](/figs/2016-1-3-This-Is-the-Place/unnamed-chunk-4-1.png) 
@@ -167,7 +167,7 @@ choro$set_num_colors(1)
 choro$ggplot_scale = scale_fill_gradientn(name = "Adherence rate\n(per 1000 population)", 
                                           colours = brewer.pal(8, "YlGnBu"))
 choro$render() + geom_text(data = data.frame(long = -111.88, lat = 40.67, label = "Salt Lake"),
-                           aes(long, lat, label = label, group = NULL), color = "black", size = 2.5)
+                           aes(long, lat, label = label, group = NULL), color = "black", size = 3)
 {% endhighlight %}
 
 ![center](/figs/2016-1-3-This-Is-the-Place/unnamed-chunk-11-1.png) 
@@ -186,7 +186,7 @@ choro$set_num_colors(1)
 choro$ggplot_scale = scale_fill_gradientn(name = "Nonadherence rate\n(per 1000 population)", 
                                           colours = brewer.pal(8, "YlGnBu"))
 choro$render() + geom_text(data = data.frame(long = -111.88, lat = 40.67, label = "Salt Lake"),
-                           aes(long, lat, label = label, group = NULL), color = "black", size = 2.5)
+                           aes(long, lat, label = label, group = NULL), color = "black", size = 3)
 {% endhighlight %}
 
 ![center](/figs/2016-1-3-This-Is-the-Place/unnamed-chunk-12-1.png) 
