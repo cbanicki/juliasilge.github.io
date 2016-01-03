@@ -45,7 +45,7 @@ choro$title = "Median Rent in Utah Counties"
 choro$set_num_colors(1)
 choro$ggplot_scale = scale_fill_gradientn(name = "Median Rent ($)", colours = brewer.pal(8, "GnBu"))
 choro$render() + geom_text(data = data.frame(long = -111.88, lat = 40.67, label = "Salt Lake"),
-                           aes(long, lat, label = label, group = NULL), color = "black", size = 2.5)
+                           aes(long, lat, label = label, group = NULL), color = "black", size = 3)
 ```
 
 The cost of renting a place to live is distributed very differently from population, which is rather unusual compared to most states. That expensive county to the east of Salt Lake is Summit County, up in the Wasatch Mountains. It's mountains, ski resorts, Park City, the [Sundance Film Festival](http://www.sundance.org/festivals/sundance-film-festival), and such up there. This time of year it is all fancy skiing, but it is pretty darn nice during any season.
@@ -63,7 +63,7 @@ choro$title = "How Much of Utah's Population Is White?"
 choro$set_num_colors(1)
 choro$ggplot_scale = scale_fill_gradientn(name = "Percent", colours = brewer.pal(8, "GnBu"))
 choro$render() + geom_text(data = data.frame(long = -111.88, lat = 40.67, label = "Salt Lake"),
-                           aes(long, lat, label = label, group = NULL), color = "black", size = 2.5)
+                           aes(long, lat, label = label, group = NULL), color = "black", size = 3)
 ```
 
 The racial/ethnic demographics of Utah are not super diverse, to put it mildly. The county where I live is more diverse than most of the state, and as in many counties that contain a good-sized city, certain neighborhoods and suburbs are significantly more and less white than average. This means it is possible to experience more diversity in Salt Lake County than the average for the county reflects. The unusual county in the southeast corner (Utah's part of the [Four Corners](https://en.wikipedia.org/wiki/Four_Corners)) is San Juan County; it is very rural with a low population that is about 50% Native American.
@@ -150,7 +150,7 @@ choro$set_num_colors(1)
 choro$ggplot_scale = scale_fill_gradientn(name = "Adherence rate\n(per 1000 population)", 
                                           colours = brewer.pal(8, "YlGnBu"))
 choro$render() + geom_text(data = data.frame(long = -111.88, lat = 40.67, label = "Salt Lake"),
-                           aes(long, lat, label = label, group = NULL), color = "black", size = 2.5)
+                           aes(long, lat, label = label, group = NULL), color = "black", size = 3)
 ```
 
 There are in fact lots of LDS people here in Utah; most of the counties have LDS adherence rates that are over 50%, some of them over 80%. Most of these counties are also very rural with low populations, but that county just south of Salt Lake is Utah County, the second most populous county in Utah and the home of Brigham Young University. 
@@ -166,7 +166,7 @@ choro$set_num_colors(1)
 choro$ggplot_scale = scale_fill_gradientn(name = "Nonadherence rate\n(per 1000 population)", 
                                           colours = brewer.pal(8, "YlGnBu"))
 choro$render() + geom_text(data = data.frame(long = -111.88, lat = 40.67, label = "Salt Lake"),
-                           aes(long, lat, label = label, group = NULL), color = "black", size = 2.5)
+                           aes(long, lat, label = label, group = NULL), color = "black", size = 3)
 ```
 
 Let's look at the maps for Catholic and evangelical religious groups, the two next most common affiliations. These numbers are significantly lower.
