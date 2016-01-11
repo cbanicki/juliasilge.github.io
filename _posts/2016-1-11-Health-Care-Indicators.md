@@ -289,16 +289,16 @@ allHealth$County[order(allHealth$Population)]
 
 Yes indeed! The pink counties are the lowest population counties, the green ones are intermediate in population, and the blue counties are the most populous. The hierarchical clustering algorithm groups the counties by population based on their health care indicators.
 
-Another algorithm for grouping similar objects is $k$-means clustering. $K$-means clustering works a bit differently than hierarchical clustering. You decide ahead of time how many clusters you are going to have (the number $k$) and randomly pick centers for each cluster (perhaps by picking data points at random to be the centers of each cluster). Then, the algorithm assigns each data point (county, in our case) to the closest cluster. After the clusters have their new members, the algorithm calculates new centers for each cluster. These steps of calculating the centers and assigning points to the clusters are repeated until the assignment of points to clusters converges (hopefully to a real minimum). Then you have your final cluster assignments!
+Another algorithm for grouping similar objects is k-means clustering. K-means clustering works a bit differently than hierarchical clustering. You decide ahead of time how many clusters you are going to have (the number k) and randomly pick centers for each cluster (perhaps by picking data points at random to be the centers of each cluster). Then, the algorithm assigns each data point (county, in our case) to the closest cluster. After the clusters have their new members, the algorithm calculates new centers for each cluster. These steps of calculating the centers and assigning points to the clusters are repeated until the assignment of points to clusters converges (hopefully to a real minimum). Then you have your final cluster assignments!
 
-The `kmeansruns` function in the `fpc` library will run $k$-means clustering many times to find the best clustering.
+The `kmeansruns` function in the `fpc` library will run k-means clustering many times to find the best clustering.
 
 
 {% highlight r %}
 myKmeans <- kmeansruns(health, krange=1:5)
 {% endhighlight %}
 
-Helpfully, this function estimates the number of clusters in the data; it can use two different methods for this estimate but both give the same answer for our county health data here. If we include 1 in the range for `krange`, this function also tests whether there should even be more than one cluster at all. For the county health data, the best $k$ is 2. Let's plot what this $k$-means clustering looks like.
+Helpfully, this function estimates the number of clusters in the data; it can use two different methods for this estimate but both give the same answer for our county health data here. If we include 1 in the range for `krange`, this function also tests whether there should even be more than one cluster at all. For the county health data, the best k is 2. Let's plot what this k-means clustering looks like.
 
 
 {% highlight r %}
@@ -317,11 +317,11 @@ autoplot(kmeans(health, 2), data = health, size = 3, aes = 0.8) +
 
 ![center](/figs/2016-1-11-Health-Care-Indicators/unnamed-chunk-19-1.png) 
 
-This plot puts the counties on a plane where the x-axis is the first principal component and the y-axis is the second principal component; this kind of plotting can be helpful to show how data points are different from each other. Like with hierarchical clustering, $k$-means clustering has grouped counties by population. The cluster on the right is a low-population cluster while the cluster on the left is a high population cluster.
+This plot puts the counties on a plane where the x-axis is the first principal component and the y-axis is the second principal component; this kind of plotting can be helpful to show how data points are different from each other. Like with hierarchical clustering, k-means clustering has grouped counties by population. The cluster on the right is a low-population cluster while the cluster on the left is a high population cluster.
 
 Remember that when we looked in detail at PC1, lower negative values of PC1 correspond to higher homicide rate, higher HIV rate, more children and fewer older poeple, higher income, lower rates of being food insecure and children eligible for free lunch, etc. Notice which counties have the lowest negatives values for PC1: the three most populous counties in Utah. That is heartening to see.
 
-The methods for estimating numbers of clusters in the $k$-means algorithm indicated that 2 was the best number, but we can do a 3-cluster $k$-means clustering to compare to the groups found by hierarchical clustering.
+The methods for estimating numbers of clusters in the k-means algorithm indicated that 2 was the best number, but we can do a 3-cluster k-means clustering to compare to the groups found by hierarchical clustering.
 
 
 {% highlight r %}
