@@ -133,7 +133,7 @@ heatmap(scaledhealth, Colv = NA, Rowv = NA, margins = c(10,4),
 
 ![center](/figs/2016-1-11-Health-Care-Indicators/unnamed-chunk-7-1.png) 
 
-The values for the health indicators have been scaled for this heat meap (otherwise, for example, the numbers for the median income would swamp out the numbers for the HIV rate because of the units they are measured with). The blank spaces in the heat map show where we have `NA` values to deal with. HIV/AIDs is not a very common disease and there are no reported cases of HIV in many of the sparsely populated counties in Utah. It probably makes sense to just put a zero in those spots because more urban areas have more HIV cases. Having an infant die is also quite uncommon in the United States and there are many counties in Utah where no infants died in 2014. Does it make sense to just put a zero in those spots? 
+The values for the health indicators have been scaled for this heat map (otherwise, for example, the numbers for the median income would swamp out the numbers for the HIV rate because of the units they are measured with). The blank spaces in the heat map show where we have `NA` values to deal with. HIV/AIDs is not a very common disease and there are no reported cases of HIV in many of the sparsely populated counties in Utah. It probably makes sense to just put a zero in those spots because more urban areas have more HIV cases. Having an infant die is also quite uncommon in the United States and there are many counties in Utah where no infants died in 2014. Does it make sense to just put a zero in those spots? 
 
 ![center](/figs/2016-1-11-Health-Care-Indicators/unnamed-chunk-8-1.png) 
 
