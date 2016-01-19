@@ -57,7 +57,7 @@ monthtype <- water %>% group_by(MONTH, YEAR, TYPE) %>%
 
 Let's see what these distributions look like.
 
-```{r, fig.height = 6, fig.width = 9}
+```{r, fig.height = 6, fig.width = 10}
 library(ggplot2)
 ggplot(monthtype, aes(x = TYPE, y = consumption, fill = TYPE)) +
         geom_boxplot() + 
@@ -88,7 +88,7 @@ streamgraph(data = datetype, key = "TYPE", value = "consumption", date = "date",
 
 The first thing I'm sure we all notice is the obvious annual pattern in water consumption. Also notice the unusual water consumption in 2014, a drought year here in Utah. How much does the distribution of water use change over the course of the year? The distribution is such that it's hard to see unless we plot this on a log scale, actually.
 
-```{r, fig.height = 6, fig.width = 9}
+```{r, fig.height = 6, fig.width = 10}
 library(lubridate)
 ggplot(monthtype, aes(x = month(as.integer(MONTH), label = TRUE), y = consumption, fill = MONTH)) +
         geom_boxplot() + scale_y_log10() +
@@ -114,7 +114,7 @@ myTS <- ts(watertimeseries$consumption, start=c(2000, 1), end=c(2015, 5), freque
 
 There is, as we saw, a strong seasonal component to the water use, so why not do a seasonal decomposition? The `stl` function will decompose a time series into 3 components: the varying seasonal component, an underlying trend component, and the leftover irregular component.
 
-```{r, fig.height=9, fig.width=7}
+```{r, fig.height=10, fig.width=8}
 library(ggfortify)
 autoplot(stl(myTS, s.window = 'periodic'), ts.colour = 'midnightblue') +
         ylab("Water consumption (100 cubic ft)") +
@@ -127,7 +127,7 @@ The trend component increases into 2013 and 2014; we can see the effect of droug
 
 Let's pretend that it is the beginning of 2013 and we would like to use the water use data we have to predict water use in the future. Then let's check how well that prediction matches the actual water use in 2013 - 2015. We can subset the time series with the `window` function and fit the data with an ARIMA model. I am new to using ARIMA models, but the idea is that they use differencing and autocorrelation (when a variable depends on past values of the variable itself) to fit the time series.
 
-```{r, fig.width=9, fig.height=4}
+```{r, fig.width=10, fig.height=4}
 library(forecast)
 myTS2013 <- window(myTS, start=c(2000, 1), end=c(2013, 1))
 myArima <- auto.arima(myTS2013)
@@ -139,7 +139,7 @@ autoplot(myForecast, predict.colour = 'maroon') +
 
 Let's now go back to the data we held back, from 2013 and on, and see how well it agrees with the prediction from the ARIMA model. First, let's do some data wrangling to make the plot because as far as I can tell, we can't use `autoplot` from `ggfortify` to plot both a time series and a forecast at the same time. Definitely let me know if I am wrong!
 
-```{r, fig.width=9, fig.height=4}
+```{r, fig.width=10, fig.height=4}
 myTS2014 <- window(myTS, start=c(2013, 1), end=c(2015, 5))
 df1 <- data.frame(date = as.Date(time(myForecast$mean)), value = as.matrix(myForecast$mean), 
                   low = as.matrix(myForecast$lower), high = as.matrix(myForecast$upper), 
