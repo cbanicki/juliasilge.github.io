@@ -80,7 +80,7 @@ water$date <- as.Date(paste0(water$YEAR,"-", water$MONTH, "-01"))
 datetype <- water %>% group_by(date, TYPE) %>% summarize(consumption = sum(CONSUMPTION))
 streamgraph(data = datetype, key = "TYPE", value = "consumption", date = "date",
                   offset = "zero", interpolate = "cardinal",
-                  width = "900", height = "500") %>%
+                  width = "800", height = "400") %>%
         sg_fill_tableau("cyclic") %>%
         sg_legend(TRUE, "Type: ") %>%
         sg_axis_x(tick_interval = 1, tick_units = "year", tick_format = "%Y")
