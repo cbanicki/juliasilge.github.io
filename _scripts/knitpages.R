@@ -19,7 +19,7 @@ KnitPost <- function(input, outfile, figsfolder, cachefolder, base.url="/") {
         opts_chunk$set(fig.cap = "center")
         render_jekyll()
         knit(input, outfile, envir = parent.frame())
-        brocks::htmlwidgets_deps(input, always = TRUE)
+        # brocks::htmlwidgets_deps(input, always = TRUE)
 }
 
 knit_folder <- function(infolder, outfolder, figsfolder, cachefolder) {
