@@ -109,7 +109,7 @@ Does this change for people of different ages? This is going to get a little mor
 
 Let's start by looking at the number of injuries by age and by sex.
 
-```{r}
+```{r, fig.width=8, fig.height=6}
 sexageinjury <- injuries %>% 
         group_by(sex, age = as.numeric(cut(age, breaks = (seq(0,100, by = 1))))-1) %>%
         summarise(total = n())
@@ -198,7 +198,7 @@ Hadley shared some plots on Twitter while he was working on this package.
 
 This toilet-related one, naturally, caught everyone's eye. Let's reproduce that plot and then divide by the population at each age bin to see how the distribution changes.
 
-```{r, fig.width=8, fig.height=8}
+```{r, fig.width=7, fig.height=7}
 toiletinjury <- injuries[injuries$prod1 == 649,] %>% 
         group_by(sex, age = as.numeric(cut(age, breaks = (seq(0,100, by = 1))))-1) %>%
         summarise(total = n())
@@ -225,7 +225,7 @@ The reason my plot doesn't extend to as high ages as Hadley's is that the popula
 
 Let's do one more. I live in a ski-centric city, so let's find all the skiing-related injuries.
 
-```{r, fig.width=8, fig.height=8}
+```{r, fig.width=7, fig.height=7}
 skiinjury <- injuries[injuries$prod1 == 3283,] %>% 
         group_by(sex, age = as.numeric(cut(age, breaks = (seq(0,100, by = 1))))-1) %>%
         summarise(total = n())
