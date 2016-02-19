@@ -72,7 +72,7 @@ If you live in a house without stairs, it looks like your floor is the most dang
 
 Let's look at where these injuries occur, first for the dataset as a whole.
 
-```{r, fig.width=8, fig.height=6}
+```{r, fig.width=7, fig.height=5}
 library(ggplot2)
 injuries$location <- as.factor(injuries$location)
 whereinjury <- injuries %>% group_by(location) %>% summarise(total = n())
