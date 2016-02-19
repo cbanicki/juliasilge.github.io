@@ -72,7 +72,7 @@ If you live in a house without stairs, it looks like your floor is the most dang
 
 Let's look at where these injuries occur, first for the dataset as a whole.
 
-```{r, fig.width=7, fig.height=5}
+```{r, fig.width=8, fig.height=6}
 library(ggplot2)
 injuries$location <- as.factor(injuries$location)
 whereinjury <- injuries %>% group_by(location) %>% summarise(total = n())
@@ -109,7 +109,7 @@ Does this change for people of different ages? This is going to get a little mor
 
 Let's start by looking at the number of injuries by age and by sex.
 
-```{r, fig.width=8, fig.height=6}
+```{r, fig.width=7, fig.height=5}
 sexageinjury <- injuries %>% 
         group_by(sex, age = as.numeric(cut(age, breaks = (seq(0,100, by = 1))))-1) %>%
         summarise(total = n())
