@@ -213,7 +213,8 @@ ggplot(data = totalinjuries,
         facet_wrap(~variable, ncol = 1, scales = "free_y") + 
         geom_line(size = 1.2, alpha = 0.9) +
         scale_color_manual(values = c("deeppink3", "deepskyblue4")) + 
-        theme(legend.title=element_blank(), legend.justification=c(1,1), legend.position=c(1,1)) +
+        theme(legend.title=element_blank(), legend.justification=c(0,0.38), 
+              legend.position=c(0,0.38)) +
         ylab("Number") + xlab("Age") + 
         ggtitle("Toilet-Related Injuries by Age and Sex")
 
