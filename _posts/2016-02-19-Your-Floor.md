@@ -86,7 +86,7 @@ library(dplyr)
 injuries <- left_join(injuries, products, by = c("prod1" = "code")) %>% 
         rename(product = title)
 injuries$product <- as.factor(injuries$product)
-injuries %>% group_by(product) %>% summarise(total = n()) %>% 
+injuries %>% group_by(product) %>% summarise(total = sum(weight)) %>% 
         top_n(10, total) %>% arrange(desc(total))
 {% endhighlight %}
 
@@ -95,18 +95,18 @@ injuries %>% group_by(product) %>% summarise(total = n()) %>%
 {% highlight text %}
 ## Source: local data frame [10 x 2]
 ## 
-##                                     product  total
-##                                      (fctr)  (int)
-## 1                           stairs or steps 195807
-## 2              floors or flooring materials 157511
-## 3      beds or bedframes, other or not spec 100812
-## 4  basketball (activity, apparel or equip.)  95524
-## 5   bicycles and accessories (excl mountain  89420
-## 6    football (activity, apparel or equip.)  81468
-## 7             doors, other or not specified  53535
-## 8            chairs, other or not specified  53349
-## 9  ceilings and walls (part of completed st  50814
-## 10         tables, not elsewhere classified  49991
+##                                     product   total
+##                                      (fctr)   (dbl)
+## 1                           stairs or steps 7245304
+## 2              floors or flooring materials 6177421
+## 3      beds or bedframes, other or not spec 3551331
+## 4  basketball (activity, apparel or equip.) 3150653
+## 5   bicycles and accessories (excl mountain 3139063
+## 6    football (activity, apparel or equip.) 2670743
+## 7          knives, not elsewhere classified 2015212
+## 8            chairs, other or not specified 1875416
+## 9             doors, other or not specified 1781299
+## 10 ceilings and walls (part of completed st 1777905
 {% endhighlight %}
 
 If you live in a house without stairs, it looks like your floor is the most dangerous thing in your house. (Is it weird that floors and stairs are "consumer products" in this data set?) These results, as we would expect, agree with the more detailed plots at [Flowing Data](http://flowingdata.com/2016/02/09/why-people-visit-the-emergency-room/).
@@ -119,13 +119,13 @@ Let's look at where these injuries occur, first for the dataset as a whole.
 {% highlight r %}
 library(ggplot2)
 injuries$location <- as.factor(injuries$location)
-whereinjury <- injuries %>% group_by(location) %>% summarise(total = n())
+whereinjury <- injuries %>% group_by(location) %>% summarise(total = sum(weight))
 ggplot(data = whereinjury, 
        aes(x = location, y = total)) +
         geom_bar(stat = "identity", fill = "aquamarine4", alpha = 0.8) + 
         theme(legend.position="none", axis.title.x = element_blank(),
               axis.text.x= element_text(angle=45, hjust = 1)) +
-        ylab("Number of injuries") +
+        ylab("Estimated number of injuries") +
         ggtitle("Location of Injuries")
 {% endhighlight %}
 
@@ -136,7 +136,7 @@ Is this different for males and females? (I have left out the injuries where no 
 
 {% highlight r %}
 injuries$sex <- as.factor(injuries$sex)
-whereinjury <- injuries %>% group_by(location, sex) %>% summarise(total = n()) %>% 
+whereinjury <- injuries %>% group_by(location, sex) %>% summarise(total = sum(weight)) %>% 
         arrange(desc(total))
 ggplot(data = whereinjury[whereinjury$sex != "None listed",], 
        aes(x = location, y = total, fill = sex)) +
@@ -144,7 +144,7 @@ ggplot(data = whereinjury[whereinjury$sex != "None listed",],
         scale_fill_manual(values = c("deeppink3", "deepskyblue4")) + 
         theme(axis.title.x = element_blank(), legend.title=element_blank(),
               axis.text.x= element_text(angle=45, hjust = 1)) +
-        ylab("Number of injuries") +
+        ylab("Estimated number of injuries") +
         ggtitle("Location of Injuries")
 {% endhighlight %}
 
@@ -162,13 +162,13 @@ Let's start by looking at the number of injuries by age and by sex.
 {% highlight r %}
 sexageinjury <- injuries %>% 
         group_by(sex, age = as.numeric(cut(age, breaks = (seq(0,100, by = 1))))-1) %>%
-        summarise(total = n())
+        summarise(total = sum(weight))
 ggplot(data = sexageinjury[sexageinjury$sex != "None listed",], 
        aes(x = age, y = total, color = sex)) +
         geom_line(size = 1.5, alpha = 0.9) +
         scale_color_manual(values = c("deeppink3", "deepskyblue4")) + 
         theme(legend.title=element_blank(), legend.justification=c(1,1), legend.position=c(1,1)) +
-        ylab("Number of injuries") + xlab("Age") + 
+        ylab("Estimated number of injuries") + xlab("Age") + 
         ggtitle("Total Injuries by Age and Sex")
 {% endhighlight %}
 
@@ -277,7 +277,7 @@ Now let's divide the injuries by the population in each age/sex bin to get a rat
 library(reshape2)
 totalinjuries <- totalinjuries %>% mutate(rate = injuries/population*1e5) %>% 
         melt(id = c("age", "sex"))
-levels(totalinjuries$variable) <- c("Population", "Injuries", "Injury Rate per 100,000 Population")
+levels(totalinjuries$variable) <- c("Population", "Estimated Injuries", "Injury Rate per 100,000 Population")
 ggplot(data = totalinjuries, 
        aes(x = age, y = value, color = sex)) +
         facet_wrap(~variable, ncol = 1, scales = "free_y") + 
@@ -305,13 +305,13 @@ This toilet-related one, naturally, caught everyone's eye. Let's reproduce that 
 {% highlight r %}
 toiletinjury <- injuries[injuries$prod1 == 649,] %>% 
         group_by(sex, age = as.numeric(cut(age, breaks = (seq(0,100, by = 1))))-1) %>%
-        summarise(total = n())
+        summarise(total = sum(weight))
 totalinjuries <- left_join(medianpop, toiletinjury, by = c("age" = "age"))
 totalinjuries <- totalinjuries %>% filter(sex.x == tolower(sex.y)) %>% 
         select(age, sex = sex.x, population = n, injuries = total) %>%
         mutate(rate = injuries/population*1e5) %>% 
         melt(id = c("age", "sex"), measure = c("injuries", "rate"))
-levels(totalinjuries$variable) <- c("Number of Injuries", "Injury Rate per 100,000 Population")
+levels(totalinjuries$variable) <- c("Estimated Number of Injuries", "Injury Rate per 100,000 Population")
 ggplot(data = totalinjuries, 
        aes(x = age, y = value, color = sex)) +
         facet_wrap(~variable, ncol = 1, scales = "free_y") + 
@@ -324,7 +324,7 @@ ggplot(data = totalinjuries,
 
 ![center](/figs/2016-02-19-Your-Floor/unnamed-chunk-17-1.png)
 
-The reason my plot doesn't extend to as high ages as Hadley's is that the population data doesn't extend to as high ages as the NEISS data, and we must have binned slightly differently because of the minor difference visible at the low ages. More of substance, dividing by the population in each age/sex bin shows that the toilet-related injury rate increases significantly with age. The difference between older women and men is not due to there being more women in the older population; older women are more likely to suffer toilet-related injuries than older men. SAD. And also somewhat sensible, I suppose, if I stop to think about it. Everyone do some squats.
+The reason my plot doesn't extend to as high ages as Hadley's is that the population data doesn't extend to as high ages as the NEISS data. Also, the y-axes are different because Hadley must have been just using the number of cases (i.e. rows) in the data set at that point, but it actually contains a weight (`weight`) for each case that can be used to get a national estimate. (The NEISS is a sample of many hospitals, but not every single hospital in the United States; the weights are assigned so that we can use these data to get a national estimate.) More of substance, dividing by the population in each age/sex bin shows that the toilet-related injury rate increases significantly with age. The difference between older women and men is not due to there being more women in the older population; older women are more likely to suffer toilet-related injuries than older men. SAD. And also somewhat sensible, I suppose, if I stop to think about it. Everyone do some squats.
 
 ## TRIED TO SKI JUMP, LEGS WENT APART IN AIR
 
@@ -334,13 +334,13 @@ Let's do one more. I live in a ski-centric city, so let's find all the skiing-re
 {% highlight r %}
 skiinjury <- injuries[injuries$prod1 == 3283,] %>% 
         group_by(sex, age = as.numeric(cut(age, breaks = (seq(0,100, by = 1))))-1) %>%
-        summarise(total = n())
+        summarise(total = sum(weight))
 totalinjuries <- left_join(medianpop, skiinjury, by = c("age" = "age"))
 totalinjuries <- totalinjuries %>% filter(sex.x == tolower(sex.y)) %>% 
         select(age, sex = sex.x, population = n, injuries = total) %>%
         mutate(rate = injuries/population*1e5) %>% 
         melt(id = c("age", "sex"), measure = c("injuries", "rate"))
-levels(totalinjuries$variable) <- c("Number of Injuries", "Injury Rate per 100,000 Population")
+levels(totalinjuries$variable) <- c("Estimated Number of Injuries", "Injury Rate per 100,000 Population")
 ggplot(data = totalinjuries, 
        aes(x = age, y = value, color = sex)) +
         facet_wrap(~variable, ncol = 1, scales = "free_y") + 
@@ -368,7 +368,7 @@ Now that we have a handle on this business with the population at different sex/
 whereinjury <- injuries %>% group_by(location, sex, 
                                      age = as.numeric(cut(age, 
                                                           breaks = (seq(0,100, by = 1))))-1) %>%
-        summarise(total = n())
+        summarise(total = sum(weight))
 whereinjury$location = factor(whereinjury$location,levels(whereinjury$location)[c(2,7,6,5,1,3,4,8,9)])
 plotlocation <- c("Home", "Other Public Property", "School", 
                   "Sports Or Recreation Place")
@@ -379,7 +379,7 @@ ggplot(data = whereinjury[whereinjury$sex != "None listed" &
         geom_line(size = 1.2, alpha = 0.9) +
         scale_color_manual(values = c("deeppink3", "deepskyblue4")) + 
         theme(legend.title=element_blank(), legend.justification=c(1,1), legend.position=c(1,1)) +
-        ylab("Number of injuries") + xlab("Age") + 
+        ylab("Estimated Number of injuries") + xlab("Age") + 
         ggtitle("Injuries by Location, Age, and Sex")
 {% endhighlight %}
 
