@@ -26,8 +26,11 @@ Experienced in using statistical techniques and numerical modeling with real-wor
 
 ## Experience
 
+#### Data Scientist, Datassist
+2016-present
+
 #### Content Developer & Support Representative, Sapling Learning
-2012—present
+2012—2016
 
 * Created interactive Flash-based online questions, solutions, feedback, and tutorials designed for college-level astronomy courses.
 * Reviewed questions authored by others for accuracy, style, and appropriate level.
