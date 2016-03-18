@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "If I Loved Natural Language Processing Less, I Might Be Able to Talk About It More"
-date: 2016-3-5
+date: 2016-3-18
 output:
   html_document
 share: true
