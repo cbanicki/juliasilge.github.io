@@ -32,7 +32,7 @@ Experienced in using statistical techniques and numerical modeling with real-wor
 #### Content Developer & Support Representative, Sapling Learning
 2012—2016
 
-* Created interactive Flash-based online questions, solutions, feedback, and tutorials designed for college-level astronomy courses.
+* Created interactive online questions, solutions, feedback, and tutorials designed for college-level astronomy courses.
 * Reviewed questions authored by others for accuracy, style, and appropriate level.
 * In total, created or reviewed over 800 detailed, rich questions.
 * Assisted in project management and user acceptance testing projects. 
