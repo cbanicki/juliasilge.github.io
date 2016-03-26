@@ -167,9 +167,8 @@ library(ggthemes)
 ggplot(votetotals, aes(x = party, y = totalvote, fill = party)) +
         geom_bar(stat = "identity", alpha = 0.8) +
         theme_tufte(base_family = "KerkisSans") +
-        theme(legend.title=element_blank()) +
+        theme(legend.position="none") +
         theme(axis.title.x = element_blank()) +
-        theme(legend.justification=c(0,1), legend.position=c(0,1)) +
         scale_fill_manual(values = c("navyblue", "red3")) +
         labs(title = "Total Votes Cast in the 2016 Utah Caucus", y = "Number of votes",
              subtitle = "Data sourced from CNN")
