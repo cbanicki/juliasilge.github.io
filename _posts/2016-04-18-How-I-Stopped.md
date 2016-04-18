@@ -39,7 +39,7 @@ One of the things one must do to get a package ready for CRAN is to make sure it
 
 <a href="https://imgflip.com/i/12m9bj"><img src="https://i.imgflip.com/12m9bj.jpg" title="No Idea UseR Dog"/></a>
 
-During the course of getting my package ready, I fixed lots of actual problems, things I had forgotten to add to `.Rbuildignore`, etc. I am still puzzled about what [`globalVariables.R`](https://github.com/juliasilge/janeaustenr/blob/master/R/globalVariables.R) is doing and why I need it, to be perfectly honest, but I made it to stop `R CMD check` from complaining. One `NOTE` that I waffled back and forth about, though, was about marked UTF-8 strings. One thing that `R CMD check` does is check the data in a package for non-ASCII characters. There are two such characters in the texts of Jane Austen's novels.
+During the course of getting my package ready, I fixed lots of actual problems, things I had forgotten to add to `.Rbuildignore`, etc. It still seems puzzling to me that [`globalVariables.R`](https://github.com/juliasilge/janeaustenr/blob/master/R/globalVariables.R) is necessary, to be perfectly honest, but whatever, I made it to stop `R CMD check` from complaining. One `NOTE` that I waffled back and forth about, though, was about marked UTF-8 strings. One thing that `R CMD check` does is check the data in a package for non-ASCII characters. There are two such characters in the texts of Jane Austen's novels.
 
 
 {% highlight r %}
