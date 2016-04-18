@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How I Stopped Worrying and Learned to Love R CMD Check"
+title: "How I Learned to Stop Worrying and Love R CMD Check"
 date: 2016-4-18
 output:
   html_document
