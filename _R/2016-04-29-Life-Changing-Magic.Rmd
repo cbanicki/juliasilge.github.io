@@ -295,10 +295,8 @@ Overall, notice that the words in the Austen-Brontë plot are closer to the zero
 Let's quantify how similar and different these sets of word frequencies are using a correlation test. How correlated are the word frequencies between Austen and the Brontë sisters, and between Austen and Wells?
 
 ```{r}
-cor.test(frequency$other[frequency$author == "Brontë Sisters"], 
-         frequency$Austen[frequency$author == "Brontë Sisters"])
-cor.test(frequency$other[frequency$author == "H.G. Wells"], 
-         frequency$Austen[frequency$author == "H.G. Wells"])
+cor.test(data = frequency[frequency$author == "Brontë Sisters",], ~ other + Austen)
+cor.test(data = frequency[frequency$author == "H.G. Wells",], ~ other + Austen)
 ```
 
 The relationship between the word frequencies is different between these sets of texts, as it appears in the plots.

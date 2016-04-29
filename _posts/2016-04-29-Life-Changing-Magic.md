@@ -508,8 +508,7 @@ Let's quantify how similar and different these sets of word frequencies are usin
 
 
 {% highlight r %}
-cor.test(frequency$other[frequency$author == "Brontë Sisters"], 
-         frequency$Austen[frequency$author == "Brontë Sisters"])
+cor.test(data = frequency[frequency$author == "Brontë Sisters",], ~ other + Austen)
 {% endhighlight %}
 
 
@@ -518,7 +517,7 @@ cor.test(frequency$other[frequency$author == "Brontë Sisters"],
 ## 
 ## 	Pearson's product-moment correlation
 ## 
-## data:  frequency$other[frequency$author == "Brontë Sisters"] and frequency$Austen[frequency$author == "Brontë Sisters"]
+## data:  other and Austen
 ## t = 122.45, df = 10611, p-value < 2.2e-16
 ## alternative hypothesis: true correlation is not equal to 0
 ## 95 percent confidence interval:
@@ -531,8 +530,7 @@ cor.test(frequency$other[frequency$author == "Brontë Sisters"],
 
 
 {% highlight r %}
-cor.test(frequency$other[frequency$author == "H.G. Wells"], 
-         frequency$Austen[frequency$author == "H.G. Wells"])
+cor.test(data = frequency[frequency$author == "H.G. Wells",], ~ other + Austen)
 {% endhighlight %}
 
 
@@ -541,7 +539,7 @@ cor.test(frequency$other[frequency$author == "H.G. Wells"],
 ## 
 ## 	Pearson's product-moment correlation
 ## 
-## data:  frequency$other[frequency$author == "H.G. Wells"] and frequency$Austen[frequency$author == "H.G. Wells"]
+## data:  other and Austen
 ## t = 36.043, df = 5958, p-value < 2.2e-16
 ## alternative hypothesis: true correlation is not equal to 0
 ## 95 percent confidence interval:
