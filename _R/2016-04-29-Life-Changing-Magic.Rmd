@@ -255,25 +255,18 @@ Well, Jane Austen is not going around talking about people's HEARTS this much; I
 Anyway, let's calculate the frequency for each word for the works of Jane Austen, the Brontë sisters, and H.G. Wells.
 
 ```{r}
-frequencybronte <- tidy_bronte %>%
+tidy_both <- bind_rows(
+        mutate(tidy_bronte, author = "Brontë Sisters"),
+        mutate(tidy_hgwells, author = "H.G. Wells"))
+frequency <- tidy_both %>%
         mutate(word = str_extract(word, "[a-z]+")) %>%
-        count(word) %>%
+        count(author, word) %>%
         rename(other = n) %>%
         inner_join(count(tidy_books, word)) %>%
         rename(Austen = n) %>%
         mutate(other = other / sum(other),
-               Austen = Austen / sum(Austen),
-               author = "Brontë Sisters")
-frequencywells <- tidy_hgwells  %>%
-        mutate(word = str_extract(word, "[a-z]+")) %>%
-        count(word) %>%
-        rename(other = n) %>%
-        inner_join(count(tidy_books, word)) %>%
-        rename(Austen = n) %>%
-        mutate(other = other / sum(other),
-               Austen = Austen / sum(Austen),
-               author = "H.G. Wells")
-frequency <- bind_rows(frequencybronte, frequencywells)
+               Austen = Austen / sum(Austen)) %>%
+        ungroup()
 ```
 
 I'm using `str_extract` here because the UTF-8 encoded texts from Project Gutenberg have some examples of words with underscores around them to indicate emphasis (you know, like italics). The tokenizer treated these as words but I don't want to count "\_any\_" separately from "any". Now let's plot.
@@ -302,8 +295,10 @@ Overall, notice that the words in the Austen-Brontë plot are closer to the zero
 Let's quantify how similar and different these sets of word frequencies are using a correlation test. How correlated are the word frequencies between Austen and the Brontë sisters, and between Austen and Wells?
 
 ```{r}
-cor.test(frequencybronte$other, frequencybronte$Austen)
-cor.test(frequencywells$other, frequencywells$Austen)
+cor.test(frequency$other[frequency$author == "Brontë Sisters"], 
+         frequency$Austen[frequency$author == "Brontë Sisters"])
+cor.test(frequency$other[frequency$author == "H.G. Wells"], 
+         frequency$Austen[frequency$author == "H.G. Wells"])
 ```
 
 The relationship between the word frequencies is different between these sets of texts, as it appears in the plots.

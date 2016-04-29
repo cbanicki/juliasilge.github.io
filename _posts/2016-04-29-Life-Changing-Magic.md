@@ -464,25 +464,18 @@ Anyway, let's calculate the frequency for each word for the works of Jane Austen
 
 
 {% highlight r %}
-frequencybronte <- tidy_bronte %>%
+tidy_both <- bind_rows(
+        mutate(tidy_bronte, author = "Brontë Sisters"),
+        mutate(tidy_hgwells, author = "H.G. Wells"))
+frequency <- tidy_both %>%
         mutate(word = str_extract(word, "[a-z]+")) %>%
-        count(word) %>%
+        count(author, word) %>%
         rename(other = n) %>%
         inner_join(count(tidy_books, word)) %>%
         rename(Austen = n) %>%
         mutate(other = other / sum(other),
-               Austen = Austen / sum(Austen),
-               author = "Brontë Sisters")
-frequencywells <- tidy_hgwells  %>%
-        mutate(word = str_extract(word, "[a-z]+")) %>%
-        count(word) %>%
-        rename(other = n) %>%
-        inner_join(count(tidy_books, word)) %>%
-        rename(Austen = n) %>%
-        mutate(other = other / sum(other),
-               Austen = Austen / sum(Austen),
-               author = "H.G. Wells")
-frequency <- bind_rows(frequencybronte, frequencywells)
+               Austen = Austen / sum(Austen)) %>%
+        ungroup()
 {% endhighlight %}
 
 I'm using `str_extract` here because the UTF-8 encoded texts from Project Gutenberg have some examples of words with underscores around them to indicate emphasis (you know, like italics). The tokenizer treated these as words but I don't want to count "\_any\_" separately from "any". Now let's plot.
@@ -515,7 +508,8 @@ Let's quantify how similar and different these sets of word frequencies are usin
 
 
 {% highlight r %}
-cor.test(frequencybronte$other, frequencybronte$Austen)
+cor.test(frequency$other[frequency$author == "Brontë Sisters"], 
+         frequency$Austen[frequency$author == "Brontë Sisters"])
 {% endhighlight %}
 
 
@@ -524,7 +518,7 @@ cor.test(frequencybronte$other, frequencybronte$Austen)
 ## 
 ## 	Pearson's product-moment correlation
 ## 
-## data:  frequencybronte$other and frequencybronte$Austen
+## data:  frequency$other[frequency$author == "Brontë Sisters"] and frequency$Austen[frequency$author == "Brontë Sisters"]
 ## t = 122.45, df = 10611, p-value < 2.2e-16
 ## alternative hypothesis: true correlation is not equal to 0
 ## 95 percent confidence interval:
@@ -537,7 +531,8 @@ cor.test(frequencybronte$other, frequencybronte$Austen)
 
 
 {% highlight r %}
-cor.test(frequencywells$other, frequencywells$Austen)
+cor.test(frequency$other[frequency$author == "H.G. Wells"], 
+         frequency$Austen[frequency$author == "H.G. Wells"])
 {% endhighlight %}
 
 
@@ -546,7 +541,7 @@ cor.test(frequencywells$other, frequencywells$Austen)
 ## 
 ## 	Pearson's product-moment correlation
 ## 
-## data:  frequencywells$other and frequencywells$Austen
+## data:  frequency$other[frequency$author == "H.G. Wells"] and frequency$Austen[frequency$author == "H.G. Wells"]
 ## t = 36.043, df = 5958, p-value < 2.2e-16
 ## alternative hypothesis: true correlation is not equal to 0
 ## 95 percent confidence interval:
