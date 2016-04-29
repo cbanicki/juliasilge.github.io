@@ -386,15 +386,7 @@ A common task in text mining is to look at word frequencies and to compare frequ
 
 {% highlight r %}
 library(gutenbergr)
-timemachine <- gutenberg_download(35)
-warofworlds <- gutenberg_download(36)
-invisibleman <- gutenberg_download(5230)
-doctormoreau <- gutenberg_download(159)
-hgwells <- bind_rows(data_frame(text = timemachine$text),
-                     data_frame(text = warofworlds$text),
-                     data_frame(text = invisibleman$text),
-                     data_frame(text = doctormoreau$text))
-hgwells <- hgwells[!is.na(hgwells$text),]
+hgwells <- gutenberg_download(c(35, 36, 5230, 159))
 tidy_hgwells <- hgwells %>%
         unnest_tokens(word, text) %>%
         anti_join(stop_words)
@@ -432,17 +424,7 @@ Now let's get some well-known works of the Brontë sisters, whose lives overlapp
 
 
 {% highlight r %}
-janeeyre <- gutenberg_download(1260)
-wuthering <- gutenberg_download(768)
-tenantof <- gutenberg_download(969)
-villette <- gutenberg_download(9182)
-agnesgrey <- gutenberg_download(766)
-bronte <- bind_rows(data_frame(text = janeeyre$text),
-                    data_frame(text = wuthering$text),
-                    data_frame(text = tenantof$text),
-                    data_frame(text = villette$text),
-                    data_frame(text = agnesgrey$text))
-bronte <- bronte[!is.na(bronte$text),]
+bronte <- gutenberg_download(c(1260, 768, 969, 9182, 766))
 tidy_bronte <- bronte %>%
         unnest_tokens(word, text) %>%
         anti_join(stop_words)
