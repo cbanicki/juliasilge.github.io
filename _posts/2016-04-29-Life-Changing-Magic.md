@@ -6,7 +6,7 @@ output:
   html_document
 share: true
 categories: blog
-excerpt: "A R package for text mining using tidy data principles"
+excerpt: "An R package for text mining using tidy data principles"
 tags: [rstats]
 ---
 
