@@ -31,8 +31,8 @@ Now, we need to tell Travis what to do by adding a `.travis.yml` file to the R p
 
 ```
 
-language: R
-cache: packages
+ language: R
+ cache: packages
 
 ```
 
@@ -54,7 +54,7 @@ Speaking of which, another possibility is that you will need to tell Travis abou
 
 ```
 
-SystemRequirements: libxml2 (>= 2.6.3)
+ SystemRequirements: libxml2 (>= 2.6.3)
 
 ```
 
@@ -62,15 +62,15 @@ This means that wherever you want to build/use the XML package, you need `libxml
 
 ```
 
-language: R
-cache: packages
-sudo: false
+ language: R
+ cache: packages
+ sudo: false
 
-addons:
-  apt:
-    packages:
-      - libgsl0-dev # for topicmodels
-      - libxml2-dev # for XML, a dependency of quanteda
+ addons:
+   apt:
+     packages:
+       - libgsl0-dev # for topicmodels
+       - libxml2-dev # for XML, a dependency of quanteda
 
 ```
 
