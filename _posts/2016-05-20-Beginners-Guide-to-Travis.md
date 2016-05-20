@@ -30,8 +30,10 @@ To get started with Travis-CI, you mosey on over to [their website](https://trav
 Now, we need to tell Travis what to do by adding a `.travis.yml` file to the R package. Many packages need only a minimal `.travis.yml` that looks like this:
 
 ```
+
 language: R
 cache: packages
+
 ```
 
 This isn't R code or anything; it is telling Travis how to go about building the package. (And FYI, this file needs to be added to `.Rbuildignore` because it is not part of the R package from the point of view of R.) You can use `devtools::use_travis()` to automatically add a minimal `.travis.yml` to your package, add `.travis.yml` to `.Rbuildignore`, and add the code for the badge to your README. This kind of simple `.travis.yml` is what I have for my [janeaustenr package](https://github.com/juliasilge/janeaustenr/blob/master/.travis.yml). Once you have made this file and then push it to GitHub, the push triggers Travis to build and check the package. Every commit you push to GitHub after this will trigger a new build on Travis that will go through all the automated checking and testing.
@@ -51,12 +53,15 @@ One example might be that your package depends on a package from GitHub that is 
 Speaking of which, another possibility is that you will need to tell Travis about some system requirements to get your package to build. For the tidytext package, we have some dependencies on packages that have system requirements. For one, we have a dependency on [quanteda](https://cran.r-project.org/web/packages/quanteda/index.html), which has a dependency on the [XML package](https://cran.r-project.org/web/packages/XML/index.html). If you check out that [link for the XML package on CRAN](https://cran.r-project.org/web/packages/XML/index.html), you'll notice that it says:
 
 ```
+
 SystemRequirements: libxml2 (>= 2.6.3)
+
 ```
 
 This means that wherever you want to build/use the XML package, you need `libxml2`. Thus, to build our package tidytext (which depends on quanteda which depends on XML) we need to get this library installed. The `.travis.yml` for tidytext (which has two such system requirements) looks like this:
 
 ```
+
 language: R
 cache: packages
 sudo: false
@@ -66,6 +71,7 @@ addons:
     packages:
       - libgsl0-dev # for topicmodels
       - libxml2-dev # for XML, a dependency of quanteda
+
 ```
 
 ## Thoughts on Debugging Travis Problems
