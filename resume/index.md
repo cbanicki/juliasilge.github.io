@@ -20,7 +20,7 @@ Experienced in using statistical techniques and numerical modeling with real-wor
 
 ## Skills and Tools
 
-* R, SQL, some Python and C
+* R, SQL, a bit of Python and C
 * Github, Markdown, shell scripting, Linux
 * writing and speaking for technical and general audiences
 
@@ -28,6 +28,10 @@ Experienced in using statistical techniques and numerical modeling with real-wor
 
 #### Data Scientist, Datassist
 2016-present
+
+* Develop statistical survey weighting tools (implemented in R) for nonprofits, local governments, social service agencies, and others.
+* Analyze complex data sets from clients to create clear and compelling reports, visualizations, and interactive apps.
+* Write educational materials for online courses to develop the data literacy of our clients around the world.
 
 #### Content Developer & Support Representative, Sapling Learning
 2012—2016
