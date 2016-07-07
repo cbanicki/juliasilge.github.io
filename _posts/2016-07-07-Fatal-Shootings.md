@@ -19,9 +19,9 @@ I have been full of grief and sadness and some anger in the wake of yet more vid
 
 Their own visualizations and reporting are [online here](https://www.washingtonpost.com/graphics/national/police-shootings-2016/) and are great, and today I decided to make a flexdashboard exploring the Washington Post's data set, as it exists right now.
 
-![center](/figs/2016-07-07-Fatal-Shootings/shootingsdashboard.png)
+[![center](/figs/2016-07-07-Fatal-Shootings/shootingsdashboard.png)](https://beta.rstudioconnect.com/juliasilge/policeshooting/)
 
-You can see and interact with the [flexdashboard here](https://beta.rstudioconnect.com/juliasilge/policeshooting/policeshooting.html).
+You can see and interact with the [flexdashboard here](https://beta.rstudioconnect.com/juliasilge/policeshooting/).
 
 As I note there in the sidebar, these numbers are presented without any adjustment for demographics here in the U.S. If you look at the bar graph showing which states have the most fatal police shootings, those tend to be the highest population states. I have not yet done any analysis looking at, for example, which states have a disproportionate number of fatal police shootings or anything like that. Also, it isn't entirely clear yet if there are issues with underreporting that might bias these results. Is a shooting of a certain kind less likely to be reported in this data set? But for all those caveats, it is a start, and certainly we want to know where we are to move forward to a more just and peaceful world. 
 
