@@ -19,7 +19,7 @@ I have been full of grief and sadness and some anger in the wake of yet more vid
 
 Their own visualizations and reporting are [online here](https://www.washingtonpost.com/graphics/national/police-shootings-2016/) and are great, and today I decided to make a flexdashboard exploring the Washington Post's data set, as it exists right now.
 
-![center](figs/2016-07-07-Fatal-Shootings/shootingsdashboard.png)
+![center](/figs/2016-07-07-Fatal-Shootings/shootingsdashboard.png)
 
 You can see and interact with the [flexdashboard here](https://beta.rstudioconnect.com/juliasilge/policeshooting/policeshooting.html).
 
