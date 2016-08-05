@@ -41,6 +41,7 @@ I've been wanting to get familiar with [Leaflet](https://rstudio.github.io/leafl
 
 How are ghost sightings distributed across Kentucky?
 
+<div style="width:100%">
 ```{r, width = 60, height = 30}
 library(leaflet)
 m <- leaflet(ghost_sightings) %>%
@@ -50,6 +51,7 @@ m <- leaflet(ghost_sightings) %>%
                    color = "limegreen")
 m
 ```
+</div>
 
 I've used a nice slimy green color here for the sightings, and the area of each circle is proportional to the number of sightings there.
 
