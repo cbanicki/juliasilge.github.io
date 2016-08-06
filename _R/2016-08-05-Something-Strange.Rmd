@@ -41,9 +41,9 @@ I've been wanting to get familiar with [Leaflet](https://rstudio.github.io/leafl
 
 How are ghost sightings distributed across Kentucky?
 
-```{r, width = 60, height = 30}
+```{r}
 library(leaflet)
-m <- leaflet(ghost_sightings) %>%
+m <- leaflet(ghost_sightings, width = "100%") %>%
         addProviderTiles("CartoDB.Positron") %>%
         addCircles(lng = ~lon, lat = ~lat, weight = 2.5,
                    radius = ~sqrt(sightings) * 4e3, popup = ~city,
