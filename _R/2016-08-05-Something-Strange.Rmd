@@ -80,8 +80,8 @@ popDF <- left_join(popDF, gazetteer, by = c("city" = "NAME"))
 
 Now let's make a Leaflet map for the population of these areas in Kentucky.
 
-```{r, width = 60, height = 30}
-m <- leaflet(popDF) %>%
+```{r}
+m <- leaflet(popDF, width = "100%") %>%
         addProviderTiles("CartoDB.Positron") %>%
         addCircles(lng = ~INTPTLONG, lat = ~INTPTLAT, weight = 1,
                    radius = ~sqrt(population) * 50, popup = ~city)
@@ -90,7 +90,7 @@ m
 
 Actually, let's bind these data frames together and map them at the same time to compare.
 
-```{r, width = 60, height = 30}
+```{r}
 mapDF <- bind_rows(popDF %>%
                            mutate(lat = INTPTLAT, long = INTPTLONG, 
                                   weight = 1, radius = sqrt(population) * 50, 
@@ -102,7 +102,7 @@ mapDF <- bind_rows(popDF %>%
                                   type = "Ghost Sighting") %>%
                            select(lat, long, city, weight, radius, type))
 typepal <- colorFactor(c("limegreen", "blue"), mapDF$type)
-m <- leaflet(mapDF) %>%
+m <- leaflet(mapDF, width = "100%") %>%
         addProviderTiles("CartoDB.Positron") %>%
         addCircles(lng = ~long, lat = ~lat, weight = ~weight,
                    radius = ~radius, popup = ~city, color = ~typepal(type)) %>%
@@ -116,6 +116,6 @@ Pretty nice! It looks to me like there are more ghost sightings in areas of high
 
 <iframe src="http://giphy.com/embed/3o7qE5BD09LwNj4qSk" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="http://giphy.com/gifs/kristen-wiig-melissa-mccarthy-we-dont-want-mass-hysteria-3o7qE5BD09LwNj4qSk">via GIPHY</a></p>
 
-I am glad to have figured out a few things about Leaflet; it is very nice to use. Any experts know how to get the Leaflet maps to display at a different width on a Jekyll/Markdown blog like mine? The R Markdown file used to make this blog post is available [here](https://github.com/juliasilge/juliasilge.github.io/blob/master/_R/2016-08-05-Something-Strange.Rmd). I am very happy to hear feedback or questions!
+I am glad to have figured out a few things about Leaflet; it is very nice to use. Thanks to [Kyle Walker](http://personal.tcu.edu/kylewalker/) and [Kent Russell](https://twitter.com/timelyportfolio) who helped me figure out how to get the maps to display at the right width both on desktop and mobile! The R Markdown file used to make this blog post is available [here](https://github.com/juliasilge/juliasilge.github.io/blob/master/_R/2016-08-05-Something-Strange.Rmd). I am very happy to hear feedback or questions!
 
 
